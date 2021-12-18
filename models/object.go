@@ -77,7 +77,11 @@ func AddOne(object Object) (ObjectId string) {
 		pass, _ := HashPassword(object.Password)
 		fmt.Println(phone, bdate, email, pass)
 		if phone && bdate && email {
+			value := fmt.Sprintf("'%s','%s','%s','%s','%s','%s'", object.FirstName, object.Lastname, object.Phonenumber, object.Email, pass, object.DateOfBirth)
 
+			tablequery := "INSERT INTO user_information (Firstname,Lastname,Phonenumber,Email,password,Birthdate) VALUES (" + value + ");"
+			_, e := db.Exec(tablequery)
+			CheckError(e)
 		} else {
 			if !phone {
 				Errormsg = Errormsg + "--Phone Number is Invalid--  "
@@ -104,7 +108,23 @@ func AddOne(object Object) (ObjectId string) {
 		pass, _ := HashPassword(object.Password)
 		fmt.Println(phone, bdate, email, pass)
 		if phone && bdate && email {
-			Errormsg = "successfullt Inserted"
+
+			Existancecheck := "SELECT * FROM user_information WHERE Email=" + "'" + object.Email + "';"
+			fmt.Println(Existancecheck)
+			a, _ := db.Exec(Existancecheck)
+			exist, _ := a.RowsAffected()
+			fmt.Println(exist)
+
+			if exist < 1 {
+
+				value := fmt.Sprintf("'%s','%s','%s','%s','%s','%s'", object.FirstName, object.Lastname, object.Phonenumber, object.Email, pass, object.DateOfBirth)
+
+				tablequery := "INSERT INTO user_information (Firstname,Lastname,Phonenumber,Email,password,Birthdate) VALUES (" + value + ");"
+				_, e := db.Exec(tablequery)
+				CheckError(e)
+			} else {
+				return "user already exist"
+			}
 		} else {
 			if !phone {
 				Errormsg = Errormsg + "--Phone Number is Invalid--  "
