@@ -10,6 +10,7 @@ This is a Go API project using <strong>Beego</strong>(Go Framework) with Swagger
 
 <h1>Features </h1>
 <span>1.Auto Database Table creation</span> <br>
-<span>2.All error case handling . <br>Exp: Phone validation error, Birthday validation error, Email validation error  </span>
+<span>2.All error case handling . <br>Exp: Phone validation error, Birthday validation error, Email validation error,Exists user handling
+</span>
 
 
