@@ -6,5 +6,5 @@ This is a Go API project using <strong>Beego</strong>(Go Framework) with Swagger
 </p>
 <h1>Commands </h1>
 <span>1.go mod tidy</span> <br>
-<span>1.go run</span>
+<span>2.go run</span>
 
