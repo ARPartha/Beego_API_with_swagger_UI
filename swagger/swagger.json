@@ -1,0 +1,126 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/object/": {
+            "post": {
+                "tags": [
+                    "object"
+                ],
+                "description": "create object",
+                "operationId": "ObjectController.Create",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The object content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} models.Object.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Object": {
+            "title": "Object",
+            "type": "object",
+            "properties": {
+                "FirstName": {
+                    "type": "string",
+                    "example": "Name"
+                },
+                "LastName": {
+                    "type": "string",
+                    "example": "Name"
+                },
+                "Phonenumber": {
+                    "type": "string",
+                    "example": "011555"
+                },
+                "Email": {
+                    "type": "string",
+                    "example": "x@gmail.com"
+                },
+                "Password": {
+                    "type": "string",
+                    "example": "****"
+                },
+                "DateOfBirth": {
+                    "type": "string",
+                    "example": "mm/dd/yyyy"
+                }
+            }
+        },
+        "models.Profile": {
+            "title": "Profile",
+            "type": "object",
+            "properties": {
+                "Address": {
+                    "type": "string"
+                },
+                "Age": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Gender": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.User": {
+            "title": "User",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Profile": {
+                    "$ref": "#/definitions/models.Profile"
+                },
+                "Username": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "object",
+            "description": "Operations about object\n"
+        },
+        {
+            "name": "user",
+            "description": "Operations about Users\n"
+        }
+    ]
+}
