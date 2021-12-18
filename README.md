@@ -2,5 +2,5 @@
 
 <h1>Descriptions </h1>
 <p>
-This is a Go API project using Beego(Go Framework) with Swagger UI.
+This is a Go API project using <strong>Beego</strong>(Go Framework) with Swagger UI.
 </p>
