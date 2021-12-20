@@ -141,7 +141,7 @@ func AddOne(object Object) (ObjectId string) {
 	// database handling
 
 	Objects[object.FirstName] = &object
-	Errormsg = "successfullt Inserted"
+	Errormsg = "successfully Inserted"
 	return Errormsg
 }
 
